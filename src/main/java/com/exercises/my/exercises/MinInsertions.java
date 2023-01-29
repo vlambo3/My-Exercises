@@ -16,7 +16,7 @@ public class MinInsertions {
      */
     public static void main(String[] args) {
         System.out.println("The min insertions are ");
-        String s = "))())(";
+        String s = "()))";
         System.out.println(minInsertions(s));
     }
     private static int minInsertions(String s) {
