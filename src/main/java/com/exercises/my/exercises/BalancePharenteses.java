@@ -13,8 +13,6 @@ public class BalancePharenteses {
         System.out.println("The min parenthesis are ");
         String p = "))((";
         System.out.println(minParentheses(p));
-        System.out.println(p.length());
-
     }
 
     private static int minParentheses(String p) {
