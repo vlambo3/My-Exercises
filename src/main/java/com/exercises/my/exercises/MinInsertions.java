@@ -16,22 +16,30 @@ public class MinInsertions {
      */
     public static void main(String[] args) {
         System.out.println("The min insertions are ");
-        String s = "()))";
+        String s = "())))";
         System.out.println(minInsertions(s));
     }
     private static int minInsertions(String s) {
-        int balance = 0;
-        int insertion = 0;
+        int close = 0;
+        int open = 0;
 
-        for (int i = 0; i < s.length(); ++i) {
-            //bal += p.charAt(i) == '(' ? 1 : -1;
-            if (s.charAt(i) == '(') balance = balance+ 2;
-            else balance --;
-            if (balance == -2) {
-                insertion ++;
-                balance =  balance +2;
+        for (char c: s.toCharArray()) {
+
+            if (c == '(') {
+                close += 2;
+                if (close%2 == 1) {
+                    close --;
+                    open ++;
+                }
             }
+
+            if (c == ')') { close --;
+                if (close == -1) {
+                    open += 1;
+                    close = 1;
+
+                } }
         }
-        return balance + insertion;
+        return close + open;
     }
 }
